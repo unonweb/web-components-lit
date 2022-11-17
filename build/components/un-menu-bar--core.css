@@ -1,0 +1,49 @@
+/* UN-MENU-BAR */
+
+/* independent of theme */
+
+:host {
+    /* used for left and right allocation */
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+    align-items: center;
+    border-bottom: thin solid black;
+    padding-bottom: 3px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.left {
+    font-size: large;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    border-left: thin solid black;
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+/* slotted */
+
+::slotted(a) {
+	color: black;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration-line: none;
+	white-space: nowrap;
+}
+::slotted(a:hover) {
+	color: lightgreen;
+}
+::slotted(a.active) {
+    border-bottom: thin solid var(--color-1);
+}
+
+@media (min-width: 680px) {
+    un-menu-bar::part(right) {
+        flex-direction: row;
+        border-left: none;   
+    }
+}

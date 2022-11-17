@@ -1,0 +1,72 @@
+:host {
+	box-sizing: border-box;
+	display: block;
+	--color-light: #888; 
+	--color-strong: #222;
+	--color-url: #B4884B;
+	--color-border: #EEE;
+	display: flex;
+	flex-wrap: nowrap;
+	row-gap: 10px;
+	flex-direction: row;
+	column-gap: 20px;
+}
+.header { 
+	/*! text-transform: uppercase; */
+	color: var(--color-strong);
+	font-size: medium;
+}
+.body { 
+	color: lightcoral;
+}
+.row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	/*! align-items: center; */
+	border-bottom: 1px solid var(--color-border);
+}
+.col {
+	display: flex;
+	/*! width: 100%; */
+	flex-direction: column;
+	row-gap: 12px;
+	column-gap: 10px;
+}
+.cell {
+	box-sizing: border-box;
+	/*! padding: 0.8em 1.2em; */
+	overflow: hidden;
+}
+.col-one {
+  width: 5%;
+}
+.col-two {
+  width: 10%;
+  min-width: 100px;
+}
+.col-three {
+  width: clamp(100px, 50%, 400px);
+}
+.col-four {
+  width: 15%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.col-five {
+  width: auto;
+}
+
+
+@media (max-width: 920px) {
+	.col-two {
+		display: none;
+	}
+	.col-four {
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		row-gap: 5px;
+		min-width: 60px;
+	}
+}

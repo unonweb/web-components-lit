@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"build": "npx vite build -c vite.config.js",
+		"serve": "npx wds --node-resolve ./src/index.html --root-dir ./src/",
+		"dev": "npx wds --node-resolve ./src/index.html --root-dir ./src/"
+	},
+	"devDependencies": {
+		"vite-plugin-static-copy": "^0.11.0"
+	}
+}

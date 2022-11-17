@@ -1,0 +1,69 @@
+.effect-zoom {
+    transition: transform 0.1s;
+}
+.effect-zoom:hover {
+    transform: scale(1.5);
+}
+.effect-wipe {
+    transition: transform 1s;
+}
+.effect-wipe.clicked {
+    transform: translateX(100%); 
+}
+.showcase-off {
+    transform: scale(0);
+}
+.showcase {
+    transform: scale(1);
+}
+
+/* SLOTTED */
+/* -------------------- */
+
+un-gallery-zoom img {
+    height: 92px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: block;
+    opacity: .5;
+    width: 92px;
+    object-fit: cover;
+}
+un-gallery-zoom img:hover {
+    opacity: 1;
+}
+
+/* PARTS */
+/* -------------------- */
+
+un-gallery-zoom::part(showcase-down-img) {
+	transition: transform, opacity 0.5s;
+}
+un-gallery-zoom::part(showcase-up-img) {
+	transition: transform, opacity 0.5s;
+}
+un-gallery-zoom::part(wrapper) {
+    display: flex;
+    flex-flow: row nowrap;
+    /*! width: fit-content; */
+    margin: auto;
+    /*! border: thin solid lightblue; */
+}
+un-gallery-zoom::part(showcase) {
+    padding: 10px;
+    padding-left: 25px;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 400px;
+}
+
+/* -------------------- */
+
+@keyframes myAnim {
+  from { /* A starting offset of 0% */
+    transform: translateX(0%);
+  }
+  to { /* An ending offset of 100% */
+    transform: translateX(100%);
+  }
+}

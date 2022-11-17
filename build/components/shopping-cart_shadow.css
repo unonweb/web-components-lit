@@ -1,0 +1,98 @@
+un-shopping-cart {
+	box-sizing: border-box;
+	width: 80%;
+	display: block;
+}
+
+un-shopping-cart::part(table) {
+	display: grid;
+	border-collapse: collapse;
+	min-width: 100%;
+	/* These are just initial values which are overriden using JavaScript when a column is resized */
+	grid-template-columns:
+		minmax(15px, 0.1fr) minmax(70px, 0.3fr) minmax(150px, 2fr) minmax(150px, 0.4fr) minmax(150px, 0.2fr); 
+}
+
+un-shopping-cart::part(thead),
+un-shopping-cart::part(tbody),
+un-shopping-cart::part(tr) {
+	display: contents;
+}
+
+un-shopping-cart::part(th),
+un-shopping-cart::part(td) {
+	padding: 15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+un-shopping-cart::part(th) {
+	position: sticky;
+  top: 0;
+  text-align: left;
+  font-weight: normal;
+  font-size: 0.8rem;
+	margin-bottom: 1rem;
+	/* mary */
+  color: #888;
+	text-transform: uppercase;
+	border-bottom: 1px solid #EEE;
+}
+un-shopping-cart::part(td) {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/*! color: #6f6f6f; */
+	color: #636363;
+}
+/* url */
+un-shopping-cart::part(url) {
+	text-decoration-line: none;
+	color: #B4884B;
+}
+un-shopping-cart::part(url):hover {
+	text-decoration: underline;
+}
+un-shopping-cart::part(variation-key) {
+  color: #888;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+un-shopping-cart::part(variation-value) {
+	text-transform: uppercase;
+	color: #4a4a4a;
+	font-size: 12px;
+}
+un-shopping-cart::part(plusminus) {
+	display: block;
+	float: left;
+	padding: 10px;
+	text-align: center;
+	border: 0;
+	background-color: #eee;
+	font-size: 18px;
+	height: 45px;
+	box-sizing: border-box;
+	-webkit-appearance: button;
+  cursor: pointer;
+	color: inherit;
+}
+un-shopping-cart::part(counter) {
+	display: block;
+	float: left;
+	padding: 10px;
+	text-align: center;
+	border: 0;
+	background-color: #eee;
+	font-size: 18px;
+	height: 45px;
+	box-sizing: border-box;
+	-webkit-appearance: button;
+  /*! cursor: pointer; */
+	/*! color: inherit; */
+	width: 50%;
+	color: inherit;
+	-moz-appearance: textfield;
+	margin-right: 0.1rem;
+	margin-left: 0.1rem;
+}

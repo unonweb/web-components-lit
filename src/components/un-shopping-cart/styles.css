@@ -1,0 +1,24 @@
+@font-face {
+	font-family: 'NimbusSansReg';
+	src:  url('/fonts/NimbusSanL-Reg.otf') format('opentype');
+}
+@font-face {
+	font-family: 'Ubuntu';
+	src:  url('/fonts/ubuntu/Ubuntu-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'RobotoCondensed';
+	src:  url('/fonts/roboto-condensed/RobotoCondensed-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'RobotoCondensed-Light';
+	src:  url('/fonts/roboto-condensed/RobotoCondensed-Light.ttf') format('truetype');
+}
+html {
+	font-family: 'RobotoCondensed-Light';
+	font-size:100%;
+}
+body {
+	width: 80%;
+	margin: auto;
+}

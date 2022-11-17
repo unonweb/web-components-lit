@@ -1,0 +1,19 @@
+:host {
+	display: inline-flex;
+	align-items: center;
+}
+
+button {
+	background: #ec292900;
+	border: none;
+	cursor: pointer;
+	fill: #000;
+}
+
+:host([vote=up]) .thumb_up {
+	fill: green;
+}
+
+:host([vote=down]) .thumb_down {
+	fill: red;
+}

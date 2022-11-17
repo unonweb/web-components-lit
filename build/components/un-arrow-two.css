@@ -1,0 +1,51 @@
+un-arrow-two::part(button) {
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0;
+	outline: 0;
+}
+
+un-arrow-two::part(svg) {
+	padding: 5px;
+}
+
+un-arrow-two::part(arrow) {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	margin-top: -45px;
+	margin-left: -35px;
+	width: 70px;
+	height: 90px;
+}
+
+un-arrow-two::part(left) {
+	left: 42%;
+}
+
+un-arrow-two::part(right) {
+	left: 58%;
+}
+un-arrow-two::part(polyline):hover,
+un-arrow-two::part(polyline):focus {
+	stroke-width: 3;
+}
+
+.left:active polyline {
+	stroke-width: 6;
+	transition: all 100ms ease-in-out;
+}
+
+.right:hover polyline,
+.right:focus polyline {
+	stroke-width: 3;
+}
+
+.right:active polyline {
+	stroke-width: 6;
+	transition: all 100ms ease-in-out;
+}
+
+un-arrow-two::part(polyline) {
+	transition: all 250ms ease-in-out;
+}

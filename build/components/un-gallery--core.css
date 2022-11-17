@@ -1,0 +1,187 @@
+/* ADD */
+
+:host {
+	height: inherit;
+	width: fit-content;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	--sym-size: 120px;
+	--sym-color: #ffffff9e;
+}
+
+.showcase {
+	/*! border: thick solid lightgreen; */
+	font-size: 0;
+	position: relative;
+	width: fit-content;
+}
+
+/* ARROWS */
+
+.arrows {
+	font-size: var(--sym-size);
+	position: absolute;
+	top: 50%;
+	right: 93%;
+	cursor: pointer;
+	color: var(--sym-color);
+	transition: transform .2s; /* Animation */
+	z-index: 3;
+}
+.arrows:hover {
+	transform: scale(1.5)
+}
+.left {
+	right: 92%;
+	top: 50%;
+}
+.right {
+	left: 92%;
+	top: 50%;
+}
+
+/* BULLETS */
+
+.bullets {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	width: 50%;
+	position: absolute;
+	bottom: 2%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.bullet {
+	border-radius: 100%;
+	border: 2px solid var(--sym-color);
+	height: 10px;
+	width: 10px;
+	cursor: pointer;
+	/*! outline: 3px solid #5f5e5e; */
+	/*! outline-offset: -5px; */
+	transition: border-color 0.3s;
+	transition: background-color 0.3s;
+}
+.bullet:hover {
+  border-color: #682f2f;
+}
+
+/* THUMBNAILS */
+
+.thumbnails {
+	display: flex;
+	justify-content: center;
+}
+
+.thumbnail {
+	width: 84px;
+	object-fit: cover;
+	height: 84px;
+	opacity: 0.4;
+	cursor: pointer;
+	transition-property: transform;
+	transition-timing-function: ease;
+	transition-duration: 0.25s;
+}
+
+/* CORE */
+
+::slotted(img.show) {
+	object-fit: cover;
+}
+.bullet-current {
+	background-color: #682f2f;
+}
+.thumbnail-current {
+	opacity: 1 !important;
+}
+.thumbnail-hide {
+	position: absolute;
+	opacity: 0 !important;
+	/* width: 0px !important; */
+	transform: translateX(100%);
+}
+
+/* arrows=false */
+
+:host([arrows='false'])
+.arrows {
+	display: none !important;
+}
+
+/* orientation=horizontal */
+
+:host([orientation='horizontal']) {
+	flex-direction: column;
+	align-items: center;
+	row-gap: 20px;
+}
+:host([orientation='horizontal']) .thumbnails {
+	flex-flow: row nowrap;
+	column-gap: 10px;
+}
+
+/* orientation=vertical */
+
+:host([orientation='vertical']) {
+	flex-direction: row-reverse !important;
+}
+:host([orientation='vertical']) .thumbnail-next-left {
+	transform: translateY(-100%); /* for vertical orientation make it slide in from above */
+}
+:host([orientation='vertical']) .thumbnail-next-right {
+	transform: translateY(100%); /* for vertical orientation make it slide in from below */
+}
+:host([orientation='vertical']) .thumbnails {
+	flex-flow: column nowrap !important;
+	row-gap: 10px;
+	margin-right: 20px;
+}
+
+/* transition effect */
+
+:host([transfx='flash']) ::slotted(img) {
+	transition-property: opacity;
+	transition-duration: 0.5s;
+	opacity: 0;
+}
+:host([transfx='flash']) ::slotted(img.show) {
+	opacity: 1 !important;
+}
+:host([transfx='grey']) ::slotted(img) {
+	transition-property: filter;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
+	filter: grayscale(100%);
+}
+:host([transfx='grey']) ::slotted(img.show) {
+	filter: grayscale(0%) !important;
+}
+:host([transfx='blend']) ::slotted(img) {
+	transition-property: filter;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in;
+	filter: brightness(0%);
+}
+:host([transfx='blend']) ::slotted(img.show) {
+	filter: brightness(100%) !important;
+}
+
+/* show / hide */
+
+::slotted(img) {
+	object-fit: cover;
+	transform: scale(0%);
+	position: absolute;
+	/* before this was un-gallery img */
+	opacity: 0; 
+	width: 400px;
+	height: 400px;
+}
+::slotted(img.show) {
+	transform: scale(1) !important;
+	position: static !important;
+	opacity: 1 !important;
+}
